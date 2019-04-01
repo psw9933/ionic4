@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Article List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-select placeholder="keyword" slot="start">
+      <ion-select-option>title</ion-select-option>
+      <ion-select-option>author</ion-select-option>
+      <ion-select-option>content</ion-select-option>
+    </ion-select>
+    <ion-searchbar class="ion-no-padding" placeholder="use name seach" animated showCancelButton cancelButtonText="">
+    </ion-searchbar>
+  </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-segment (ionChange)="">
+      <ion-segment-button value="new">
+        <ion-label>Newest</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="hot">
+        <ion-label>Hottest</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar> -->
+
+  <ion-card class="ion-padding-top" *ngFor="let item of list"   [routerLink]="['/article']" [queryParams]="{data:item}">
+    <ion-card-header class="ion-no-padding ion-margin-start">
+      <ion-card-title style="font-size:120%">{{item.title}}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-no-padding">
+      <ion-grid>
+        <ion-row>
+
+          <ion-col align-self-start size="5">
+            <img src="http://localhost:3000/{{item.pic}}">
+          </ion-col>
+
+          <ion-col>
+            <ion-row>
+              <ion-col>
+                <ion-chip color="success">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <ion-label>{{item.likes}}</ion-label>
+                </ion-chip>
+              </ion-col>
+
+              <ion-col>
+                <ion-chip color="secondary">
+                  <ion-icon name="pricetag"></ion-icon>
+                  <ion-label>level:{{item.level}}</ion-label>
+                </ion-chip>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+              <ion-col>
+                <ion-label color="medium"> by:{{item.by}} </ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

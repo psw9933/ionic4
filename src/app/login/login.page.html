@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card padding>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form action="login()" method="post">
+        <ion-input type="text" name="userid" placeholder="input uesrid"></ion-input>
+        <ion-input type="password" name="password" placeholder="input password"></ion-input>
+        <ion-toolbar>
+          <ion-label color="primary"> Remember me? </ion-label>
+          <ion-toggle slot="end" checked></ion-toggle>
+        </ion-toolbar>
+        <ion-button expand="block" type="submit">Login</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

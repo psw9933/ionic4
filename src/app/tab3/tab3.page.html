@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      User Center
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-no-padding" style="box-shadow: 0 0 3px #000;">
+    <ion-row>
+      <ion-col align-self-start>
+          <img src="../assets/_ionicons_svg_ios-person.svg">
+      </ion-col>
+      <ion-col align-self-center>
+        <ion-label color="primary"> login first!</ion-label>
+      </ion-col>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/login']"><ion-ripple-effect></ion-ripple-effect>Login</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card> 
+  <ion-list>
+    <ion-item>
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      <ion-label color="medium">Browsing History</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      <ion-label color="medium">Give Feedback</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      <ion-label color="medium">About Apps</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      <ion-label color="medium">Contact Developers</ion-label>
+    </ion-item>
+    <!-- <ion-item>
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      <ion-label color="medium">User Logout</ion-label>
+    </ion-item> -->
+  </ion-list>
+</ion-content>
