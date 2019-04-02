@@ -27,13 +27,13 @@
     </ion-segment>
   </ion-toolbar> -->
 
-  <ion-card class="ion-padding-top" *ngFor="let item of list"   [routerLink]="['/article']" [queryParams]="{data:item}">
+  <ion-card class="ion-padding-top" *ngFor="let item of list">
     <ion-card-header class="ion-no-padding ion-margin-start">
       <ion-card-title style="font-size:120%">{{item.title}}
       </ion-card-title>
     </ion-card-header>
 
-    <ion-card-content class="ion-no-padding">
+    <ion-card-content class="ion-no-padding"  [routerLink]="['/article']" [queryParams]="{title:item.title}">
       <ion-grid>
         <ion-row>
 

@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>article</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="dark">Article details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-text color="dark">
+    <h2>{{data.title}}</h2>
+  </ion-text>
+  <ion-item lines="none">
+    <ion-label solt="start"> by：{{data.by}} </ion-label>
+    <ion-label solt="end"> {{data.last_edit_time}} </ion-label>
+  </ion-item>
+  <ion-text color="primary">{{data.content}} </ion-text>
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-button color="primary" (click)="completRead()"> Reading completed </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button color="primary"><ion-icon name="heart"></ion-icon>Favorites </ion-button>
+    </ion-col>
+    <ion-col>
+        <ion-button> <ion-icon name="thumbs-up"></ion-icon></ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

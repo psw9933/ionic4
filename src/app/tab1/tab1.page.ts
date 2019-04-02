@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpService } from "../http.service";
+import { HttpService } from "../services/http.service";
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',

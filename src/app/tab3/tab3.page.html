@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="ion-no-padding" style="box-shadow: 0 0 3px #000;">
+  <ion-card *ngIf="userid.length<1" class="ion-no-padding" style="box-shadow: 0 0 3px #000;">
     <ion-row>
       <ion-col align-self-start>
           <img src="../assets/_ionicons_svg_ios-person.svg">
@@ -16,10 +16,23 @@
         <ion-label color="primary"> login first!</ion-label>
       </ion-col>
       <ion-col align-self-center>
-        <ion-button [routerLink]="['/login']"><ion-ripple-effect></ion-ripple-effect>Login</ion-button>
+        <ion-button routerLink="/login"><ion-ripple-effect></ion-ripple-effect>Login</ion-button>
       </ion-col>
     </ion-row>
   </ion-card> 
+  <ion-card *ngIf="userid.length>1" class="ion-no-padding" style="box-shadow: 0 0 3px #000;" >
+      <ion-row>
+        <ion-col align-self-start>
+            <img src="{{img}}">
+        </ion-col>
+        <ion-col align-self-center>
+          <ion-label color="primary">Hi,{{userid}}</ion-label>
+        </ion-col>
+        <ion-col align-self-center>
+          <ion-button (click)="logout()"><ion-ripple-effect></ion-ripple-effect>logout</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
   <ion-list>
     <ion-item>
         <ion-icon name="arrow-round-forward"></ion-icon>

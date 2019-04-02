@@ -10,15 +10,13 @@
       <ion-card-title>Login</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form action="login()" method="post">
-        <ion-input type="text" name="userid" placeholder="input uesrid"></ion-input>
-        <ion-input type="password" name="password" placeholder="input password"></ion-input>
+        <ion-input type="text" placeholder="input uesrid" [(ngModel)]="userinfo.username"></ion-input>
+        <ion-input type="password" placeholder="input password" [(ngModel)]="userinfo.password"></ion-input>
         <ion-toolbar>
           <ion-label color="primary"> Remember me? </ion-label>
           <ion-toggle slot="end" checked></ion-toggle>
         </ion-toolbar>
-        <ion-button expand="block" type="submit">Login</ion-button>
-      </form>
+        <ion-button expand="block" (click)="doLogin()">Login</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from "../http.service";
+import { NavController } from '@ionic/angular';
+
+import { HttpService } from "../services/http.service";
+import { LocalstorageService } from '../services/localstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -7,17 +10,29 @@ import { HttpService } from "../http.service";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  public userinfo:any={
+    username:'',
+    password:''
+  };
+
   public success:any={'status':"Verify success"};
   public fail:any={'status':"Verify fail"};
-  constructor(public http:HttpService){
+
+  constructor(public navController:NavController,public http:HttpService,public storage:LocalstorageService){
 
   }
   ngOnInit() {
   }
-  doLogin(body){
-    this.http.post("user/login_do",body).then((res:any)=>{
-      if(res==this.success){
-        alert("login success");
+  doLogin(){
+    var user={
+      userid:this.userinfo.username,
+      password:this.userinfo.password,
+    };
+    this.http.post("user/login_do",user).then((res:any)=>{
+      if(res){
+        console.log(res[0]);
+        this.storage.set('userinfo',res[0]);
+        this.navController.navigateBack('/tabs/tab3');
       }
     }).catch((err)=>{
       console.log(err);
